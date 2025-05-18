@@ -15,7 +15,7 @@ Node* _crear_nodo(DataType type, DataValue dato)
     switch (newE->type)
     {
         case TYPE_INT:
-        newE->val.valueInt = dato.valueInt;
+            newE->val.valueInt = dato.valueInt;
         break;
         case TYPE_CHAR:
             newE->val.valueChar = dato.valueChar;
@@ -24,8 +24,10 @@ Node* _crear_nodo(DataType type, DataValue dato)
             newE->val.valueBool = dato.valueBool;
         break;
         case TYPE_STRING:
-            newE->val.valueString = (char*)malloc(strlen(dato.valueString) + 1);
+            size_t new_size = strlen(dato.valueString) +1;
+            newE->val.valueString = (char*)malloc(new_size);
             strcpy(newE->val.valueString, dato.valueString);
+            newE->val.valueString[new_size -1] = '\0';
         break;
         case TYPE_FLOAT:
             newE->val.valueFloat = dato.valueFloat;
