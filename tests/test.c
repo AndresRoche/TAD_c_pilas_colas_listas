@@ -203,6 +203,9 @@ void test_reserve()
     printf("el numero 30 esta : %d\n", index_int(&numeros_invertidos, 30));
     printf("el numero 5 esta : %d\n", index_int(&numeros_invertidos, 5));
 
+    printf("--%d--\n", consultar_int(&numeros, 14));
+    printf("--%d--\n", consultar_int(&numeros, -14));
+
 
     destruir_lista(&numeros_invertidos);
     destruir_lista(&numeros);
